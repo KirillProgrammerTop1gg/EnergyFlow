@@ -1,0 +1,63 @@
+.quote{
+    padding-top: 16px;
+    position: relative;
+    display: flex;
+    &__container{
+        width: 704px;
+        height: 302px;
+        border-radius: 50px;
+        background: rgb(126, 132, 127);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__commas{
+        position: absolute;
+        top: 32px;
+        right: 64px;
+        width: 48px;
+        height: 48px;
+    }
+    &__texts{
+        width: 576px;
+        height: 174px;
+        padding-left: 50px;
+        position: relative;
+    }
+    &__iconCircle{
+        width: 32px;
+        height: 32px;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(246, 246, 246, 0.1);
+        position: absolute;
+    }
+    &__icon{
+        width: 18px;
+        height: 20px;
+    }
+    &__title{
+        width: 526px;
+        height: 32px;
+        @include text-style(500, 24px, 1.33, #F6F6F6);
+    }
+    &__text{
+        margin-top: 16px;
+        @include text-style(400, 16px, 1.5, rgba(246, 246, 246, 0.6));
+        width: 526px;
+    }
+    &__author{
+        margin-top: 25px;
+        @include text-style(500, 16px, 1.5, #F6F6F6);
+    }
+    &__img{
+        border-radius: 50px;
+        width: 704px;
+        height: 302px;
+    }
+}

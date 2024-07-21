@@ -1,0 +1,15 @@
+@mixin text-style($font-weight, $font-size, $line-height, $color: $maintext-color) {
+    font-family: 'DM Sans';
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+}
+
+@mixin flex($justify-content, $align-items, $flex-direction: row, $flex-wrap: nowrap) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $flex-direction;
+    flex-wrap: $flex-wrap;
+}

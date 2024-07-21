@@ -1,0 +1,95 @@
+.footer{
+    padding: 16px;
+    height: 486px;
+    background-image: url("../imgs/footer.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    &__cont{
+        display: flex;
+        padding: 64px 48px;
+    }
+    &__title{
+        @include text-style(700, 28px, 1, #F6F6F6);
+    }
+    &__text{
+        @include text-style(400, 65px, 0.96, #F6F6F6);
+        width: 488px;
+        margin-left: 156px;
+        height: 186px;
+    }
+    &__span{
+        font-style: italic;
+        color: rgba(246, 246, 246, 0.3);
+    }
+    &__list {
+        width: 156px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    &__link {
+        background-color: transparent;
+        border: 1px solid #7E847F33;
+        transition: all .2s;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    
+        &>svg>g>path {
+            transition: all .2s;
+            fill: #F6F6F6;
+        }
+    
+        &:hover {
+            border: 1px solid #5F656033;
+    
+            &>svg>g>path {
+                fill: rgba(246, 246, 246, 0.6);
+            }
+        }
+    }
+    &__form{
+        margin-left: 160px;
+    }
+    &__clue{
+        @include text-style(400, 18px, 1.33, #F6F6F6);
+    }
+    &__input{
+        margin-top: 20px;
+        border: 1px solid #F6F6F6;
+        border-radius: 30px;
+        background-color: transparent;
+        @include text-style(400, 16px, 1.5, rgba(246, 246, 246, 0.6));
+        width: 352px;
+        height: 48px;
+        padding: 12px 14px;
+    }
+    &__button {
+        margin-top: 20px;
+        border: 0;
+        border-radius: 30px;
+        background-color: #7E847F;
+        @include text-style(400, 16px, 1.5, #F6F6F6);
+        width: 352px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .3s;
+        &:hover{
+            background-color: #5F6560;
+        }
+    }
+    &__info{
+        @include text-style(400, 14px, 1.28, #F6F6F6);
+        margin: 96px 0 0 485px;
+        display: flex;
+        gap: 32px;
+    }
+}

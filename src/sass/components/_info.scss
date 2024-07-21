@@ -1,0 +1,24 @@
+.dat{
+    padding-top: 156px;
+    display: flex;
+    &__img{
+        width: 352px;
+        height: 302px;
+        border-radius: 50px;
+    }
+    &__time{
+        width: 352px;
+        height: 302px;
+        border-radius: 50px;
+        background: rgb(255, 255, 255);
+        padding: 106px 110px 105px;
+    }
+    &__min{
+        margin-top: 15px;
+        @include text-style(500, 24px, 1.33, #1B1B1B);
+    }
+    &__description{
+        margin-top: 6px;
+        @include text-style(400, 14px, 1.28, rgba(27, 27, 27, 0.6));
+    }
+}

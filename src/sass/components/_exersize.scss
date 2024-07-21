@@ -1,0 +1,242 @@
+.containerExs{
+    padding-top: 16px;
+}
+.exersize{
+    padding: 64px 48px;
+    border-radius: 50px;
+    background: rgb(232, 232, 232);
+    &__title{
+        @include text-style(400, 44px, 1.09, #1B1B1B);
+    }
+    &__filters{
+        margin-top: 32px;
+        gap: 8px;
+        display: flex;
+    }
+    &__filterBut{
+        @include text-style(400, 16px, 1.5, #1B1B1B);
+        padding: 10px 20px;
+        border-radius: 30px;
+        background: #F6F6F6;
+        transition: all .3s;
+        border: 0;
+        &.activeBut{
+            color: #F6F6F6;
+            background-color: #7E847F;
+        }
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px 20px;
+        margin-top: 32px;
+        opacity: 0;
+        cursor: none;
+        pointer-events: none;
+        transition: all .3s;
+        position: absolute;
+    
+        &.showExs {
+            cursor: auto;
+            pointer-events: all;
+            position: static;
+            opacity: 1;
+        }
+    }
+    &__item{
+        width: 313px;
+        height: 250px;
+        border: 1px solid rgba(246, 246, 246, 0.3);
+        border-radius: 12px;
+        background-size: 312px 250px;
+        position: relative;
+    }
+    &__overlay{
+        background-color: rgba(16, 16, 16, 0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 12px;
+    }
+    &__but{
+        border: 0;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        position: absolute;
+    }
+    &__name{
+        @include text-style(400, 24px, 1, #F6F6F6);
+    }
+    &__category{
+        margin-top: 2px;
+        @include text-style(400, 12px, 1.5, rgba(246, 246, 246, 0.4));
+    }
+    &__pages{
+        gap: 8px;
+        display: flex;
+        margin: 32px auto 0;
+        width: min-content;
+    }
+    &__pageBut{
+        border: 0;
+        @include text-style(400, 24px, 1.33, rgba(27, 27, 27, 0.4));
+        background-color: transparent;
+        &.activePage{
+            border-radius: 50%;
+            border: 1px solid rgb(27, 27, 27);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1B1B1B;
+        }
+    }
+    &__span{
+        @include text-style(400, 24px, 1.33, rgba(27, 27, 27, 0.5));
+    }
+    &__exersizes{
+        margin-top: 32px;
+        gap: 28px 20px;
+        opacity: 0;
+        cursor: none;
+        pointer-events: none;
+        transition: all .3s;
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        &.showExs{
+            cursor: auto;
+            pointer-events: all;
+            position: static;
+            opacity: 1;
+        }
+        &.activeErr{
+            height: 550px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    &__exersize{
+        width: 424px;
+        height: 141px;
+        border-radius: 15px;
+        background: rgb(255, 255, 255);
+        padding: 16px;
+    }
+    &__startBut{
+        border: 0;
+        height: 109px;
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+    }
+    &__workoutLogo{
+        border-radius: 15px;
+        background: rgb(126, 132, 127);
+        width: 76px;
+        height: 26px;
+        @include text-style(500, 12px, 1.33, #F6F6F6);
+        padding: 5px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__rating{
+        @include text-style(400, 12px, 1.5, #1B1B1B);
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        margin-left: 16px;
+    }
+    &__start{
+        @include text-style(400, 16px, 1.5, #1B1B1B);
+        display: flex;
+        align-items: center;
+        margin-left: 201px;
+        gap: 8px;
+    }
+    &__cont{
+        display: flex;
+        align-items: center;
+    }
+    &__extitle{
+        display: flex;
+        gap: 16px;
+        margin-top: auto;
+        align-items: center;
+    }
+    &__ex{
+        @include text-style(400, 24px, 1.33, #1B1B1B);
+        text-align: left;
+    }
+    &__contSer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__form{
+        position: absolute;
+        opacity: 0;
+        cursor: none;
+        pointer-events: none;
+        transition: all .3s;
+        position: absolute;
+        &.activeForm{
+            position: relative;
+            cursor: auto;
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+    &__search{
+        position: absolute;
+        top: 15px;
+        width: 18px;
+        height: 18px;
+        right: 14px;
+        border: 0;
+        background-color: transparent;
+    }
+    &__input{
+        width: 273px;
+        height: 48px;
+        border: 0;
+        padding: 12px 35px 12px 14px;
+        @include text-style(400, 16px, 1.5, #1B1B1B);
+        border-radius: 30px;
+        background: #F6F6F6;
+    }
+    &__error{
+        @include text-style(400, 18px, 1.33, #1B1B1B);
+        width: 684px;
+        height: 72px;
+        // position: absolute;
+        // pointer-events: none;
+        // opacity: 0;
+        // cursor: none;
+        // transition: all .3s;
+        // &.activeErr{
+        //     cursor: auto;
+        //     pointer-events: all;
+        //     position: static;
+        //     opacity: 1;
+        // }
+    }
+    &__err{
+        color: #7E847F;
+    }
+}
+.info{
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+    &__item{
+        @include text-style(400, 12px, 1.5, rgba(27, 27, 27, 0.4));
+    }
+    &__span{
+        color: #1B1B1B;
+    }
+}

@@ -1,0 +1,104 @@
+.exersizeModal{
+    padding: 40px 40px 40px 350px;
+    width: 732px;
+    height: 470px;
+    border-radius: 20px;
+    background: rgb(246, 246, 246);
+    position: relative;
+    &__img{
+        width: 270px;
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        height: 259px;
+        border-radius: 12px;
+        z-index: 3;
+    }
+    &__overlay{
+        width: 270px;
+        height: 259px;
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        border-radius: 12px;
+        background: rgba(27, 27, 27, 0.2);
+        z-index: 4;
+    }
+    &__close{
+        border: 0;
+        background-color: transparent;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 28px;
+        height: 28px;
+    }
+    &__title{
+        @include text-style(500, 24px, 1.33, #1B1B1B);
+    }
+    &__rating{
+        display: flex;
+        gap: 2px;
+        margin-top: 8px;
+    }
+    &__stars{
+        display: flex;
+        gap: 2px;
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 8px 0;
+        gap: 16px;
+        margin-top: 16px;
+        border-bottom: 1px solid rgba(27, 27, 27, 0.2);
+        border-top: 1px solid rgba(27, 27, 27, 0.2);
+    }
+    &__label{
+        @include text-style(400, 12px, 1.5, rgba(27, 27, 27, 0.4));
+    }
+    &__dat{
+        margin-top: 4px;
+        @include text-style(500, 14px, 1.28, #1B1B1B);
+    }
+    &__description{
+        @include text-style(400, 14px, 1.28, rgba(27, 27, 27, 0.6));
+        margin-top: 16px;
+    }
+    &__buts{
+        display: flex;
+        margin-top: 32px;
+        gap: 7px;
+    }
+    &__addToFav{
+        @include text-style(400, 16px, 1.5, #F6F6F6);
+        border-radius: 30px;
+        background: rgb(126, 132, 127);
+        width: 194px;
+        height: 48px;
+        border: 0;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all .3s;
+        &:hover{
+            background: rgb(95, 101, 96);
+        }
+    }
+    &__giveRating{
+        width: 141px;
+        height: 48px;
+        border: 1px solid rgb(27, 27, 27);
+        border-radius: 30px;
+        padding: 12px 24px;
+        background-color: transparent;
+        @include text-style(400, 16px, 1.5, #1B1B1B);
+        transition: all .3s;
+        &:hover {
+            border: 1px solid rgb(126, 132, 127);
+            color: #7E847F;
+        }
+    }
+}

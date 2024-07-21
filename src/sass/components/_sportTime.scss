@@ -1,0 +1,40 @@
+.sportTime{
+    padding-top: 16px;
+    display: flex;
+    &__img {
+        border-radius: 50px;
+        width: 704px;
+        height: 302px;
+    }
+    &__texts {
+        width: 704px;
+        height: 302px;
+        border-radius: 50px;
+        background: #1B1B1B;
+        position: relative;
+        padding: 64px 64px 64px 114px;
+    }
+    &__iconCircle{
+        border-radius: 50%;
+        background: rgba(246, 246, 246, 0.1);
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: 64px;
+        left: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__title{
+        @include text-style(500, 24px, 1.33, #F6F6F6);
+    }
+    &__clue{
+        margin-top: 2px;
+        @include text-style(400, 14px, 1.24, rgba(246, 246, 246, 0.6));
+    }
+    &__description{
+        margin-top: 25px;
+        @include text-style(400, 16px, 1.5, rgba(246, 246, 246, 0.6));
+    }
+}

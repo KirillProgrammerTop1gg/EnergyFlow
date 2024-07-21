@@ -1,0 +1,79 @@
+.containerFav {
+    padding-top: 16px;
+}
+
+.favorites {
+    padding: 64px 48px;
+    border-radius: 50px;
+    background: rgb(232, 232, 232);
+
+    &__title {
+        @include text-style(400, 44px, 1.09, #1B1B1B);
+    }
+
+    &__list {
+        margin-top: 32px;
+        gap: 28px 20px;
+        transition: all .3s;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 424px;
+        height: 141px;
+        border-radius: 15px;
+        background: rgb(255, 255, 255);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__delBut{
+        border: 0;
+        background-color: transparent;
+    }
+
+    &__workoutLogo {
+        border-radius: 15px;
+        background: rgb(126, 132, 127);
+        width: 76px;
+        height: 26px;
+        @include text-style(500, 12px, 1.33, #F6F6F6);
+        padding: 5px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__svg {
+        margin-left: 8px;
+    }
+
+    &__start {
+        @include text-style(400, 16px, 1.5, #1B1B1B);
+        display: flex;
+        align-items: center;
+        border: 0;
+        background-color: transparent;
+        margin-left: 201px;
+        gap: 8px;
+    }
+
+    &__cont {
+        display: flex;
+        align-items: center;
+    }
+
+    &__favtitle {
+        display: flex;
+        gap: 16px;
+        margin-top: auto;
+        align-items: center;
+    }
+
+    &__fav {
+        @include text-style(400, 24px, 1.33, #1B1B1B);
+        text-align: left;
+    }
+}
