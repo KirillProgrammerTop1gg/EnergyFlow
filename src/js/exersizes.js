@@ -35,13 +35,29 @@ export const getEx = async (id) => {
     }
 }
 
+export const sendRating = async (id, rating) => {
+    console.log(`https://energyflow.b.goit.study/api/exercises/${id}/rating`);
+    try {
+        const response = await axios.patch(`https://energyflow.b.goit.study/api/exercises/${id}/rating`, rating);
+        console.log(response.data)
+        return response.data;
+    }
+    catch (error) {
+        throw new Error(`Error get quote ${error}`);
+    }
+}
+
+const pattern = `^\\w+(\\.\\w+)?@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$`;
 let page = 1;
 let ex = '';
 let modal;
+let modal2;
+let word = '';
 let fav = [];
 
 const showExersizes = (filter, page) => getExersizes(filter, page).then(data => {
     console.log(data);
+    word = document.querySelector('.exersize__input').value;
     document.querySelector('.exersize__list').innerHTML = '';
     document.querySelector('.exersize__pages').innerHTML = '';
     document.querySelector('.exersize__input').value = '';
@@ -63,6 +79,7 @@ const showExersizes = (filter, page) => getExersizes(filter, page).then(data => 
 
 const showExs = (filter, exs, page, keyword = '') => getExs(filter, exs, page, keyword).then(data => {
     console.log(data);
+    word = document.querySelector('.exersize__input').value;
     document.querySelector('.exersize__exersizes').innerHTML = '';
     document.querySelector('.exersize__pages').innerHTML = '';
     document.querySelector('.exersize__exersizes').classList.remove('activeErr');
@@ -101,6 +118,13 @@ const showExs = (filter, exs, page, keyword = '') => getExs(filter, exs, page, k
 });
 
 showExersizes('Muscles', page);
+
+const activeStars = (stars) => {
+    document.querySelector('.ratingModal__rating').innerHTML = `${stars}.0`
+    for (let i = 1; i <= 5; i++) {
+        stars >= i ? (document.querySelector(`.ratingModal__button[data-star="${i}"]>svg>path`).setAttribute('fill', '#EEA10C'), document.querySelector(`.ratingModal__button[data-star="${i}"]>svg>path`).setAttribute('fill-opacity', '1')) : (document.querySelector(`.ratingModal__button[data-star="${i}"]>svg>path`).setAttribute('fill', '#1B1B1B'), document.querySelector(`.ratingModal__button[data-star="${i}"]>svg>path`).setAttribute('fill-opacity', '0.2'));
+    }
+};
 
 document.querySelector('.exersize').addEventListener('click', (e) => {
     e.target.closest('.exersize__filterBut') !== null ? (document.querySelectorAll('.exersize__filterBut').forEach(el => el.classList.remove('activeBut')), e.target.classList.add('activeBut'), document.querySelector('.exersize__exersizes').classList.remove('showExs'), document.querySelector('.exersize__title').innerHTML = `Exercises`, document.querySelector('.exersize__list').classList.add('showExs'), page = 1, ex = '', document.querySelector('.exersize__form').classList.remove('activeForm'), showExersizes(e.target.dataset.category, page)) : null;
@@ -170,5 +194,50 @@ document.querySelector('.exersize').addEventListener('click', (e) => {
                 </button>
             </div>
         </section>
-    `), modal.show(), document.querySelector('.exersizeModal__close').addEventListener('click', (e) => modal.close()), document.querySelector('.exersizeModal__addToFav').addEventListener('click', (e) => (document.querySelector('.exersizeModal__addToFav').innerHTML = `${localStorage.getItem('fav') !== null ? JSON.parse(localStorage.getItem('fav')).includes(e.target.dataset.id) ? 'Add to favorites' : 'Remove from' : 'Remove from'} <svg class="exersizeModal__svg" width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs><clipPath id="clip3600_830"><rect id="heart" rx="000000" width="19.000000" height="19.000000" transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/></clipPath></defs><rect id="heart" rx="000000" width="19.000000" height="19.000000" transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/><g clip-path="url(#clip3600_830)"><path id="Vector" d="M15.87 2.84C15.32 2.61 14.72 2.49 14.12 2.49C13.52 2.49 12.92 2.61 12.37 2.84C11.81 3.07 11.3 3.41 10.88 3.84L10 4.72L9.11 3.84C8.25 2.98 7.09 2.49 5.87 2.49C4.65 2.49 3.49 2.98 2.63 3.84C1.77 4.7 1.29 5.86 1.29 7.08C1.29 8.29 1.77 9.46 2.63 10.32L3.51 11.2L10 17.69L16.48 11.2L17.36 10.32C17.79 9.89 18.13 9.39 18.36 8.83C18.59 8.28 18.71 7.68 18.71 7.08C18.71 6.48 18.59 5.88 18.36 5.32C18.13 4.77 17.79 4.26 17.36 3.84C16.94 3.41 16.43 3.07 15.87 2.84Z" stroke="#F6F6F6" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/></g></svg>`, localStorage.setItem('fav', localStorage.getItem('fav') !== null ? `[${JSON.parse(localStorage.getItem('fav')).includes(e.target.dataset.id) ? localStorage.getItem('fav').slice(1,-1).replace(e.target.dataset.id, '') : JSON.parse(localStorage.getItem('fav')).length !== 0 ? localStorage.getItem('fav').slice(1,-1)+',"'+e.target.dataset.id+'"' : '"'+e.target.dataset.id+'"'}]` : `["${e.target.dataset.id}"]`), localStorage.setItem('fav', JSON.stringify(JSON.parse(localStorage.getItem('fav')).filter(fav => fav !== '' && fav !== undefined))))))) : null;
+    `), modal.show(), document.querySelector('.exersizeModal__giveRating').addEventListener('click', (e) => (modal2 = basicLightbox.create(`
+            <section class="ratingModal" data-id="${data._id}">
+                <button type="button" class="ratingModal__close"><svg width="28.000000" height="28.000000" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs/><path id="Icon" d="M19.83 8.16L8.16 19.83M8.16 8.16L19.83 19.83" stroke="#1B1B1B" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round"/></svg></button>
+                <p class="ratingModal__text">Rating</p>
+                <p class="ratingModal__rating">0.0</p>
+                <ul class="ratingModal__stars" data-stars="0">
+                    <li class="ratingModal__star">
+                        <button class="ratingModal__button" data-star="1">
+                            <svg width="18.673828" height="17.858643" viewBox="0 0 18.6738 17.8586" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs/><path id="Star 1" d="M8.38 0.69L6.86 5.36C6.73 5.77 6.34 6.05 5.91 6.05L1 6.05C0.03 6.05 -0.37 7.29 0.41 7.86L4.38 10.75C4.74 11 4.88 11.45 4.75 11.87L3.23 16.54C2.93 17.46 3.98 18.23 4.77 17.66L8.74 14.77C9.09 14.51 9.57 14.51 9.92 14.77L13.9 17.66C14.68 18.23 15.73 17.46 15.43 16.54L13.92 11.87C13.78 11.45 13.93 11 14.28 10.75L18.25 7.86C19.04 7.29 18.64 6.05 17.67 6.05L12.75 6.05C12.32 6.05 11.94 5.77 11.8 5.36L10.28 0.69C9.98 -0.24 8.68 -0.24 8.38 0.69Z" fill="#1B1B1B" fill-opacity="0.200000" fill-rule="evenodd"/></svg>
+                        </button>
+                    </li>
+                    <li class="ratingModal__star">
+                        <button class="ratingModal__button" data-star="2">
+                            <svg width="18.673828" height="17.858643" viewBox="0 0 18.6738 17.8586" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs/><path id="Star 1" d="M8.38 0.69L6.86 5.36C6.73 5.77 6.34 6.05 5.91 6.05L1 6.05C0.03 6.05 -0.37 7.29 0.41 7.86L4.38 10.75C4.74 11 4.88 11.45 4.75 11.87L3.23 16.54C2.93 17.46 3.98 18.23 4.77 17.66L8.74 14.77C9.09 14.51 9.57 14.51 9.92 14.77L13.9 17.66C14.68 18.23 15.73 17.46 15.43 16.54L13.92 11.87C13.78 11.45 13.93 11 14.28 10.75L18.25 7.86C19.04 7.29 18.64 6.05 17.67 6.05L12.75 6.05C12.32 6.05 11.94 5.77 11.8 5.36L10.28 0.69C9.98 -0.24 8.68 -0.24 8.38 0.69Z" fill="#1B1B1B" fill-opacity="0.200000" fill-rule="evenodd"/></svg>
+                        </button>
+                    </li>
+                    <li class="ratingModal__star">
+                        <button class="ratingModal__button" data-star="3">
+                            <svg width="18.673828" height="17.858643" viewBox="0 0 18.6738 17.8586" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs/><path id="Star 1" d="M8.38 0.69L6.86 5.36C6.73 5.77 6.34 6.05 5.91 6.05L1 6.05C0.03 6.05 -0.37 7.29 0.41 7.86L4.38 10.75C4.74 11 4.88 11.45 4.75 11.87L3.23 16.54C2.93 17.46 3.98 18.23 4.77 17.66L8.74 14.77C9.09 14.51 9.57 14.51 9.92 14.77L13.9 17.66C14.68 18.23 15.73 17.46 15.43 16.54L13.92 11.87C13.78 11.45 13.93 11 14.28 10.75L18.25 7.86C19.04 7.29 18.64 6.05 17.67 6.05L12.75 6.05C12.32 6.05 11.94 5.77 11.8 5.36L10.28 0.69C9.98 -0.24 8.68 -0.24 8.38 0.69Z" fill="#1B1B1B" fill-opacity="0.200000" fill-rule="evenodd"/></svg>
+                        </button>
+                    </li>
+                    <li class="ratingModal__star">
+                        <button class="ratingModal__button" data-star="4">
+                            <svg width="18.673828" height="17.858643" viewBox="0 0 18.6738 17.8586" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs/><path id="Star 1" d="M8.38 0.69L6.86 5.36C6.73 5.77 6.34 6.05 5.91 6.05L1 6.05C0.03 6.05 -0.37 7.29 0.41 7.86L4.38 10.75C4.74 11 4.88 11.45 4.75 11.87L3.23 16.54C2.93 17.46 3.98 18.23 4.77 17.66L8.74 14.77C9.09 14.51 9.57 14.51 9.92 14.77L13.9 17.66C14.68 18.23 15.73 17.46 15.43 16.54L13.92 11.87C13.78 11.45 13.93 11 14.28 10.75L18.25 7.86C19.04 7.29 18.64 6.05 17.67 6.05L12.75 6.05C12.32 6.05 11.94 5.77 11.8 5.36L10.28 0.69C9.98 -0.24 8.68 -0.24 8.38 0.69Z" fill="#1B1B1B" fill-opacity="0.200000" fill-rule="evenodd"/></svg>
+                        </button>
+                    </li>
+                    <li class="ratingModal__star">
+                        <button class="ratingModal__button" data-star="5">
+                            <svg width="18.673828" height="17.858643" viewBox="0 0 18.6738 17.8586" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs/><path id="Star 1" d="M8.38 0.69L6.86 5.36C6.73 5.77 6.34 6.05 5.91 6.05L1 6.05C0.03 6.05 -0.37 7.29 0.41 7.86L4.38 10.75C4.74 11 4.88 11.45 4.75 11.87L3.23 16.54C2.93 17.46 3.98 18.23 4.77 17.66L8.74 14.77C9.09 14.51 9.57 14.51 9.92 14.77L13.9 17.66C14.68 18.23 15.73 17.46 15.43 16.54L13.92 11.87C13.78 11.45 13.93 11 14.28 10.75L18.25 7.86C19.04 7.29 18.64 6.05 17.67 6.05L12.75 6.05C12.32 6.05 11.94 5.77 11.8 5.36L10.28 0.69C9.98 -0.24 8.68 -0.24 8.38 0.69Z" fill="#1B1B1B" fill-opacity="0.200000" fill-rule="evenodd"/></svg>
+                        </button>
+                    </li>
+                </ul>
+                <form class="ratingModal__form">
+                    <input type="text" placeholder="Email" class="ratingModal__email" pattern="${pattern}" required>
+                    <textarea class="ratingModal__comment" placeholder="Your comment" required></textarea>
+                    <button type="submit" class="ratingModal__send">Send</button>
+                </form>
+            </section>
+        `), modal2.show(), document.querySelector('.ratingModal__stars').addEventListener('click', (e) => e.target.closest('.ratingModal__button') !== null ? (document.querySelector('.ratingModal__stars').setAttribute('data-stars', e.target.closest('.ratingModal__button').dataset.star), activeStars(e.target.closest('.ratingModal__button').dataset.star)) : null), document.querySelector('.ratingModal__send').addEventListener('click', (ee) => {
+            ee.preventDefault();
+            document.querySelector('.ratingModal__form').checkValidity() ? sendRating(document.querySelector('.ratingModal').dataset.id, {
+                rate: Number(document.querySelector('.ratingModal__stars').dataset.stars),
+                email: document.querySelector('.ratingModal__email').value,
+                review: document.querySelector('.ratingModal__comment').value
+            }).then(data => (modal.close(), modal2.close(), showExs(document.querySelector('.exersize__filterBut.activeBut').dataset.catexs, ex, page, word))) : document.querySelector('.ratingModal__form').reportValidity();
+        }))), document.querySelector('.exersizeModal__close').addEventListener('click', (e) => modal.close()), document.querySelector('.exersizeModal__addToFav').addEventListener('click', (e) => (document.querySelector('.exersizeModal__addToFav').innerHTML = `${localStorage.getItem('fav') !== null ? JSON.parse(localStorage.getItem('fav')).includes(e.target.dataset.id) ? 'Add to favorites' : 'Remove from' : 'Remove from'} <svg class="exersizeModal__svg" width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs><clipPath id="clip3600_830"><rect id="heart" rx="000000" width="19.000000" height="19.000000" transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/></clipPath></defs><rect id="heart" rx="000000" width="19.000000" height="19.000000" transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/><g clip-path="url(#clip3600_830)"><path id="Vector" d="M15.87 2.84C15.32 2.61 14.72 2.49 14.12 2.49C13.52 2.49 12.92 2.61 12.37 2.84C11.81 3.07 11.3 3.41 10.88 3.84L10 4.72L9.11 3.84C8.25 2.98 7.09 2.49 5.87 2.49C4.65 2.49 3.49 2.98 2.63 3.84C1.77 4.7 1.29 5.86 1.29 7.08C1.29 8.29 1.77 9.46 2.63 10.32L3.51 11.2L10 17.69L16.48 11.2L17.36 10.32C17.79 9.89 18.13 9.39 18.36 8.83C18.59 8.28 18.71 7.68 18.71 7.08C18.71 6.48 18.59 5.88 18.36 5.32C18.13 4.77 17.79 4.26 17.36 3.84C16.94 3.41 16.43 3.07 15.87 2.84Z" stroke="#F6F6F6" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/></g></svg>`, localStorage.setItem('fav', localStorage.getItem('fav') !== null ? `[${JSON.parse(localStorage.getItem('fav')).includes(e.target.dataset.id) ? localStorage.getItem('fav').slice(1, -1).replace(e.target.dataset.id, '') : JSON.parse(localStorage.getItem('fav')).length !== 0 ? localStorage.getItem('fav').slice(1, -1) + ',"' + e.target.dataset.id + '"' : '"' + e.target.dataset.id + '"'}]` : `["${e.target.dataset.id}"]`), localStorage.setItem('fav', JSON.stringify(JSON.parse(localStorage.getItem('fav')).filter(fav => fav !== '' && fav !== undefined && fav !== "undefined"))))))) : null;
 });

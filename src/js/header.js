@@ -1,4 +1,6 @@
+import { showFavs } from './fav.js';
+
 document.querySelector('.header__buttons').addEventListener('click', (e) => {
     e.target.closest('.header__navBut[homeBut]') !== null ? (document.querySelector('.header__navBut[homeBut]').classList.add('activeBut'), document.querySelector('.header__navBut[favBut]').classList.remove('activeBut'), document.querySelectorAll('.container.homePage').forEach(cont => cont.style.display = 'block'), document.querySelectorAll('.container.favPage').forEach(cont => cont.style.display = 'none'), document.querySelector('.footer').style.display = 'block') : null;
-    e.target.closest('.header__navBut[favBut]') !== null ? (document.querySelector('.header__navBut[homeBut]').classList.remove('activeBut'), document.querySelector('.header__navBut[favBut]').classList.add('activeBut'), document.querySelectorAll('.container.homePage').forEach(cont => cont.style.display = 'none'), document.querySelectorAll('.container.favPage').forEach(cont => cont.style.display = 'block'), document.querySelector('.footer').style.display = 'none') : null;
+    e.target.closest('.header__navBut[favBut]') !== null ? (document.querySelector('.header__navBut[homeBut]').classList.remove('activeBut'), document.querySelector('.header__navBut[favBut]').classList.add('activeBut'), document.querySelectorAll('.container.homePage').forEach(cont => cont.style.display = 'none'), document.querySelectorAll('.container.favPage').forEach(cont => cont.style.display = 'block'), document.querySelector('.footer').style.display = 'none', showFavs()) : null;
 })
