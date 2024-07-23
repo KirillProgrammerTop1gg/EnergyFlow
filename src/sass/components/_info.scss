@@ -1,10 +1,17 @@
 .dat{
     padding-top: 156px;
     display: flex;
+    @media screen and (max-width: 1439px) {
+        flex-wrap: wrap;
+    }
     &__img{
         width: 352px;
         height: 302px;
         border-radius: 50px;
+        @media screen and (max-width: 1439px) {
+            margin-top: 16px;
+            width: 368px;
+        }
     }
     &__time{
         width: 352px;
@@ -12,6 +19,11 @@
         border-radius: 50px;
         background: rgb(255, 255, 255);
         padding: 106px 110px 105px;
+        @media screen and (max-width: 1439px) {
+            width: 368px;
+            margin-top: 16px;
+            padding: 106px 118px 105px;
+        }
     }
     &__min{
         margin-top: 15px;

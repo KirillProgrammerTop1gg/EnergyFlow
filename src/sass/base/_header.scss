@@ -1,13 +1,18 @@
 .header{
     position: absolute;
     display: flex;
-    top: 40px;
     height: 52px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     padding: 0 64px;
+    top: 40px;
     max-width: 1440px;
+    @media screen and (max-width: 1439px) {
+        padding: 0 48px;
+        top: 48px;
+        max-width: 768px;
+    }
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;

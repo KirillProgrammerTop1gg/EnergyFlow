@@ -7,9 +7,18 @@
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    @media screen and (max-width: 1439px) {
+        max-width: 768px;
+        background-image: url("../imgs/footer(tablet).png");
+        height: 608px;
+    }
     &__cont{
         display: flex;
         padding: 64px 48px;
+        @media screen and (max-width: 1439px) {
+            flex-wrap: wrap;
+            padding: 64px 41px 0 48px;
+        }
     }
     &__title{
         @include text-style(700, 28px, 1, #F6F6F6);
@@ -19,6 +28,13 @@
         width: 488px;
         margin-left: 156px;
         height: 186px;
+        @media screen and (max-width: 1439px) {
+            font-size: 54px;
+            line-height: 0.93;
+            width: 345px;
+            height: 150px;
+            margin-left: 139px;
+        }
     }
     &__span{
         font-style: italic;
@@ -56,6 +72,10 @@
     }
     &__form{
         margin-left: 160px;
+        @media screen and (max-width: 1439px) {
+            margin-left: 295px;
+            margin-top: 32px;
+        }
     }
     &__clue{
         @include text-style(400, 18px, 1.33, #F6F6F6);
@@ -69,6 +89,9 @@
         width: 352px;
         height: 48px;
         padding: 12px 14px;
+        @media screen and (max-width: 1439px) {
+            
+        }
     }
     &__button {
         margin-top: 20px;
@@ -87,9 +110,14 @@
         }
     }
     &__info{
-        @include text-style(400, 14px, 1.28, #F6F6F6);
         margin: 96px 0 0 485px;
         display: flex;
         gap: 32px;
+        @media screen and (max-width: 1439px) {
+            margin: 120px 0 0 149px;
+        }
+    }
+    &__data{
+        @include text-style(400, 14px, 1.28, #F6F6F6);
     }
 }

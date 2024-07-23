@@ -3,32 +3,53 @@
     position: relative;
     display: flex;
     &__img{
-        min-width: 704px;
-        height: 884px;
         border-radius: 50px 0px 50px 50px;
+        width: 704px;
+        height: 884px;
+        background: url('../imgs/heroImg.png'), rgb(232, 232, 232);
+        @media screen and (max-width: 1439px) {
+            width: 248px;
+            height: 900px;
+            background: url('../imgs/heroImg(tablet).png'), rgb(232, 232, 232);
+        }
     }
     &__texts{
-        min-width: 704px;
-        height: 884px;
         background-color: white;
         border-radius: 0px 50px 50px 50px;
         display: flex;
         flex-direction: column;
+        width: 704px;
+        height: 884px;
         padding-left: 32px;
+        @media screen and (max-width: 1439px) {
+            width: 488px;
+            height: 900px;
+        }
     }
     &__title{
-        margin-top: 225px;
-        width: 640px;
         @include text-style(400, 120px, 0.9583, #1B1B1B);
+        width: 640px;
+        margin-top: 225px;
+        @media screen and (max-width: 1439px) {
+            width: 424px;
+            font-size: 98px;
+            margin-top: 231px;
+        }
     }
     &__description {
         margin-top: 25px;
         width: 528px;
         @include text-style(400, 18px, 1.33, #1B1B1B);
+        @media screen and (max-width: 1439px) {
+            width: 396px;
+        }
     }
     &__span{
         @include text-style(400, 120px, 0.9583, #7E847F);
         font-style: italic;
+        @media screen and (max-width: 1439px) {
+            font-size: 98px;
+        }
     }
     &__list{
         position: absolute;
@@ -38,6 +59,10 @@
         flex-wrap: wrap;
         width: 196px;
         gap: 8px;
+        @media screen and (max-width: 1439px) {
+            left: 20px;
+            bottom: 64px;
+        }
     }
     &__item{
         border: 1px solid #F6F6F64D;
@@ -46,7 +71,6 @@
         align-items: center;
         justify-content: center;
         padding: 4px 16px;
-        width: 86px;
         height: 32px;
     }
     &__tag{

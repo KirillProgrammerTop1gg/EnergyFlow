@@ -3,7 +3,7 @@ import * as basicLightbox from 'basiclightbox';
 
 export const getExersizes = async (filter, page) => {
     try {
-        const response = await axios.get(`https://energyflow.b.goit.study/api/filters?filter=${filter}&page=${page}&limit=12`);
+        const response = await axios.get(`https://energyflow.b.goit.study/api/filters?filter=${filter}&page=${page}&limit=${window.outerWidth < 768 ? '8' : '12'}`);
         return response.data;
     }
     catch (error) {
@@ -12,9 +12,9 @@ export const getExersizes = async (filter, page) => {
 }
 
 export const getExs = async (filter, exs, page, keyword) => {
-    console.log(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== '' ? "&keyword=" + keyword : ""}&page=1&limit=9`);
+    console.log(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== '' ? "&keyword=" + keyword : ""}&page=1&limit=${window.outerWidth < 1440 ? '8' : '9'}`);
     try {
-        const response = await axios.get(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== '' ? "&keyword=" + keyword : ""}&page=${page}&limit=9`);
+        const response = await axios.get(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== '' ? "&keyword=" + keyword : ""}&page=${page}&limit=${window.outerWidth < 1440 ? '8' : '9'}`);
         console.log(response.data)
         return response.data;
     }

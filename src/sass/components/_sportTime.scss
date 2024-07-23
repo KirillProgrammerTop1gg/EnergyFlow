@@ -1,10 +1,16 @@
 .sportTime{
     padding-top: 16px;
     display: flex;
+    @media screen and (max-width: 1439px) {
+        flex-wrap: wrap;
+    }
     &__img {
         border-radius: 50px;
         width: 704px;
         height: 302px;
+        @media screen and (max-width: 1439px) {
+            width: 736px;
+        }
     }
     &__texts {
         width: 704px;
@@ -12,7 +18,10 @@
         border-radius: 50px;
         background: #1B1B1B;
         position: relative;
-        padding: 64px 64px 64px 114px;
+        padding: 64px 96px 64px 114px;
+        @media screen and (max-width: 1439px) {
+            width: 736px;
+        }
     }
     &__iconCircle{
         border-radius: 50%;

@@ -1,7 +1,12 @@
 <div class="container containerExs homePage">
     <section class="exersize">
+        <h2 class="exersize__title">Exercises</h2>
         <div class="exersize__contSer">
-            <h2 class="exersize__title">Exercises</h2>
+            <ul class="exersize__filters">
+                <li class="exersize__filter"><button class="exersize__filterBut activeBut" data-category="Muscles" data-catexs="muscles" type="button">Muscles</button></li>
+                <li class="exersize__filter"><button class="exersize__filterBut" data-category="Body parts" data-catexs="bodypart" type="button">Body parts</button></li>
+                <li class="exersize__filter"><button class="exersize__filterBut" data-category="Equipment" data-catexs="equipment" type="button">Equipment</button></li>
+            </ul>
             <form class="exersize__form">
                 <input type="text" class="exersize__input" placeholder="Search">
                 <button type="button" class="exersize__search">
@@ -9,11 +14,6 @@
                 </button>
             </form>
         </div>
-        <ul class="exersize__filters">
-            <li class="exersize__filter"><button class="exersize__filterBut activeBut" data-category="Muscles" data-catexs="muscles" type="button">Muscles</button></li>
-            <li class="exersize__filter"><button class="exersize__filterBut" data-category="Body parts" data-catexs="bodypart" type="button">Body parts</button></li>
-            <li class="exersize__filter"><button class="exersize__filterBut" data-category="Equipment" data-catexs="equipment" type="button">Equipment</button></li>
-        </ul>
         <ul class="exersize__list showExs"></ul>
         <ul class="exersize__exersizes"></ul>
         <ul class="exersize__pages"></ul>
