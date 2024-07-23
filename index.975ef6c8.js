@@ -5359,16 +5359,16 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _basiclightbox = require("basiclightbox");
 const getExersizes = async (filter, page)=>{
     try {
-        const response = await (0, _axiosDefault.default).get(`https://energyflow.b.goit.study/api/filters?filter=${filter}&page=${page}&limit=12`);
+        const response = await (0, _axiosDefault.default).get(`https://energyflow.b.goit.study/api/filters?filter=${filter}&page=${page}&limit=${window.outerWidth < 768 ? "8" : "12"}`);
         return response.data;
     } catch (error) {
         throw new Error(`Error get quote ${error}`);
     }
 };
 const getExs = async (filter, exs, page, keyword)=>{
-    console.log(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== "" ? "&keyword=" + keyword : ""}&page=1&limit=9`);
+    console.log(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== "" ? "&keyword=" + keyword : ""}&page=1&limit=${window.outerWidth < 1440 ? "8" : "9"}`);
     try {
-        const response = await (0, _axiosDefault.default).get(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== "" ? "&keyword=" + keyword : ""}&page=${page}&limit=9`);
+        const response = await (0, _axiosDefault.default).get(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== "" ? "&keyword=" + keyword : ""}&page=${page}&limit=${window.outerWidth < 1440 ? "8" : "9"}`);
         console.log(response.data);
         return response.data;
     } catch (error) {
@@ -5710,7 +5710,7 @@ document.querySelector(".footer__button").addEventListener("click", (e)=>{
     `).show(), document.querySelector(".footer__input").value = "")) : document.querySelector(".footer__form").reportValidity();
 });
 
-},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","basiclightbox":"h9e8q"}],"bvS82":[function(require,module,exports) {
+},{"axios":"jo6P5","basiclightbox":"h9e8q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bvS82":[function(require,module,exports) {
 var _favJs = require("./fav.js");
 document.querySelector(".header__buttons").addEventListener("click", (e)=>{
     e.target.closest(".header__navBut[homeBut]") !== null && (document.querySelector(".header__navBut[homeBut]").classList.add("activeBut"), document.querySelector(".header__navBut[favBut]").classList.remove("activeBut"), document.querySelectorAll(".container.homePage").forEach((cont)=>cont.style.display = "block"), document.querySelectorAll(".container.favPage").forEach((cont)=>cont.style.display = "none"), document.querySelector(".footer").style.display = "block");

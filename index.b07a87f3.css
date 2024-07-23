@@ -132,26 +132,20 @@ a {
 
 .container {
   width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-@media screen and (width >= 480px) {
+@media screen and (width <= 767px) {
   .container {
     max-width: 480px;
   }
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width <= 1439px) {
   .container {
     max-width: 768px;
-    padding: 0 32px;
-  }
-}
-
-@media screen and (width >= 1440px) {
-  .container {
-    max-width: 1440px;
     padding: 0 16px;
   }
 }
@@ -188,6 +182,14 @@ img {
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media screen and (width <= 1439px) {
+  .header {
+    max-width: 768px;
+    padding: 0 48px;
+    top: 48px;
+  }
 }
 
 .header__title {
@@ -272,19 +274,35 @@ img {
 }
 
 .hero__img {
+  background: url("heroImg.68f2c30d.png"), #e8e8e8;
   border-radius: 50px 0 50px 50px;
-  min-width: 704px;
+  width: 704px;
   height: 884px;
+}
+
+@media screen and (width <= 1439px) {
+  .hero__img {
+    background: url("heroImg(tablet).cfae27c3.png"), #e8e8e8;
+    width: 248px;
+    height: 900px;
+  }
 }
 
 .hero__texts {
   background-color: #fff;
   border-radius: 0 50px 50px;
   flex-direction: column;
-  min-width: 704px;
+  width: 704px;
   height: 884px;
   padding-left: 32px;
   display: flex;
+}
+
+@media screen and (width <= 1439px) {
+  .hero__texts {
+    width: 488px;
+    height: 900px;
+  }
 }
 
 .hero__title {
@@ -297,6 +315,14 @@ img {
   line-height: .9583;
 }
 
+@media screen and (width <= 1439px) {
+  .hero__title {
+    width: 424px;
+    margin-top: 231px;
+    font-size: 98px;
+  }
+}
+
 .hero__description {
   color: #1b1b1b;
   width: 528px;
@@ -307,6 +333,12 @@ img {
   line-height: 1.33;
 }
 
+@media screen and (width <= 1439px) {
+  .hero__description {
+    width: 396px;
+  }
+}
+
 .hero__span {
   color: #7e847f;
   font-family: DM Sans;
@@ -314,6 +346,12 @@ img {
   font-style: italic;
   font-weight: 400;
   line-height: .9583;
+}
+
+@media screen and (width <= 1439px) {
+  .hero__span {
+    font-size: 98px;
+  }
 }
 
 .hero__list {
@@ -326,12 +364,18 @@ img {
   left: 48px;
 }
 
+@media screen and (width <= 1439px) {
+  .hero__list {
+    bottom: 64px;
+    left: 20px;
+  }
+}
+
 .hero__item {
   border: 1px solid #f6f6f64d;
   border-radius: 30px;
   justify-content: center;
   align-items: center;
-  width: 86px;
   height: 32px;
   padding: 4px 16px;
   display: flex;
@@ -351,6 +395,12 @@ img {
   position: relative;
 }
 
+@media screen and (width <= 1439px) {
+  .quote {
+    flex-wrap: wrap;
+  }
+}
+
 .quote__container {
   background: #7e847f;
   border-radius: 50px;
@@ -362,12 +412,24 @@ img {
   position: relative;
 }
 
+@media screen and (width <= 1439px) {
+  .quote__container {
+    width: 736px;
+  }
+}
+
 .quote__commas {
   width: 48px;
   height: 48px;
   position: absolute;
   top: 32px;
   right: 64px;
+}
+
+@media screen and (width <= 1439px) {
+  .quote__commas {
+    right: 80px;
+  }
 }
 
 .quote__texts {
@@ -430,6 +492,12 @@ img {
   height: 302px;
 }
 
+@media screen and (width <= 1439px) {
+  .quote__img {
+    width: 736px;
+  }
+}
+
 .containerExs {
   padding-top: 16px;
 }
@@ -450,7 +518,6 @@ img {
 
 .exersize__filters {
   gap: 8px;
-  margin-top: 32px;
   display: flex;
 }
 
@@ -482,6 +549,12 @@ img {
   transition: all .3s;
   display: flex;
   position: absolute;
+}
+
+@media screen and (width <= 1439px) {
+  .exersize__list {
+    gap: 14px;
+  }
 }
 
 .exersize__list.showExs {
@@ -582,6 +655,12 @@ img {
   position: absolute;
 }
 
+@media screen and (width <= 1439px) {
+  .exersize__exersizes {
+    gap: 20px 14px;
+  }
+}
+
 .exersize__exersizes.showExs {
   cursor: auto;
   pointer-events: all;
@@ -603,12 +682,25 @@ img {
   padding: 16px;
 }
 
+@media screen and (width <= 1439px) {
+  .exersize__exersize {
+    width: 313px;
+    height: 165px;
+  }
+}
+
 .exersize__startBut {
   background-color: #0000;
   border: 0;
   flex-direction: column;
   height: 109px;
   display: flex;
+}
+
+@media screen and (width <= 1439px) {
+  .exersize__startBut {
+    height: 133px;
+  }
 }
 
 .exersize__workoutLogo {
@@ -631,6 +723,7 @@ img {
   color: #1b1b1b;
   align-items: center;
   gap: 2px;
+  height: 18px;
   margin-left: 16px;
   font-family: DM Sans;
   font-size: 12px;
@@ -649,6 +742,12 @@ img {
   font-weight: 400;
   line-height: 1.5;
   display: flex;
+}
+
+@media screen and (width <= 1439px) {
+  .exersize__start {
+    margin-left: 89px;
+  }
 }
 
 .exersize__cont {
@@ -672,9 +771,16 @@ img {
   line-height: 1.33;
 }
 
+@media screen and (width <= 1439px) {
+  .exersize__ex {
+    font-size: 22px;
+  }
+}
+
 .exersize__contSer {
   justify-content: space-between;
   align-items: center;
+  margin-top: 32px;
   display: flex;
 }
 
@@ -717,6 +823,12 @@ img {
   line-height: 1.5;
 }
 
+@media screen and (width <= 1439px) {
+  .exersize__input {
+    width: 246px;
+  }
+}
+
 .exersize__error {
   color: #1b1b1b;
   width: 684px;
@@ -732,9 +844,15 @@ img {
 }
 
 .info {
-  gap: 16px;
+  gap: 6px 16px;
   margin-top: 8px;
   display: flex;
+}
+
+@media screen and (width <= 1439px) {
+  .info {
+    flex-wrap: wrap;
+  }
 }
 
 .info__item {
@@ -754,10 +872,22 @@ img {
   display: flex;
 }
 
+@media screen and (width <= 1439px) {
+  .sportTime {
+    flex-wrap: wrap;
+  }
+}
+
 .sportTime__img {
   border-radius: 50px;
   width: 704px;
   height: 302px;
+}
+
+@media screen and (width <= 1439px) {
+  .sportTime__img {
+    width: 736px;
+  }
 }
 
 .sportTime__texts {
@@ -765,8 +895,14 @@ img {
   border-radius: 50px;
   width: 704px;
   height: 302px;
-  padding: 64px 64px 64px 114px;
+  padding: 64px 96px 64px 114px;
   position: relative;
+}
+
+@media screen and (width <= 1439px) {
+  .sportTime__texts {
+    width: 736px;
+  }
 }
 
 .sportTime__iconCircle {
@@ -819,9 +955,24 @@ img {
   padding: 16px;
 }
 
+@media screen and (width <= 1439px) {
+  .footer {
+    background-image: url("footer(tablet).fa241a01.png");
+    max-width: 768px;
+    height: 608px;
+  }
+}
+
 .footer__cont {
   padding: 64px 48px;
   display: flex;
+}
+
+@media screen and (width <= 1439px) {
+  .footer__cont {
+    flex-wrap: wrap;
+    padding: 64px 41px 0 48px;
+  }
 }
 
 .footer__title {
@@ -841,6 +992,16 @@ img {
   font-size: 65px;
   font-weight: 400;
   line-height: .96;
+}
+
+@media screen and (width <= 1439px) {
+  .footer__text {
+    width: 345px;
+    height: 150px;
+    margin-left: 139px;
+    font-size: 54px;
+    line-height: .93;
+  }
 }
 
 .footer__span {
@@ -882,6 +1043,13 @@ img {
 
 .footer__form {
   margin-left: 160px;
+}
+
+@media screen and (width <= 1439px) {
+  .footer__form {
+    margin-top: 32px;
+    margin-left: 295px;
+  }
 }
 
 .footer__clue {
@@ -930,23 +1098,38 @@ img {
 }
 
 .footer__info {
-  color: #f6f6f6;
   gap: 32px;
   margin: 96px 0 0 485px;
+  display: flex;
+}
+
+@media screen and (width <= 1439px) {
+  .footer__info {
+    margin: 120px 0 0 149px;
+  }
+}
+
+.footer__data {
+  color: #f6f6f6;
   font-family: DM Sans;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
-  display: flex;
 }
 
 .exersizeModal {
   background: #f6f6f6;
   border-radius: 20px;
   width: 732px;
-  height: 470px;
   padding: 40px 40px 40px 350px;
   position: relative;
+}
+
+@media screen and (width <= 1439px) {
+  .exersizeModal {
+    width: 716px;
+    padding: 40px 40px 40px 334px;
+  }
 }
 
 .exersizeModal__img {
@@ -1104,10 +1287,23 @@ img {
   display: flex;
 }
 
+@media screen and (width <= 1439px) {
+  .dat {
+    flex-wrap: wrap;
+  }
+}
+
 .dat__img {
   border-radius: 50px;
   width: 352px;
   height: 302px;
+}
+
+@media screen and (width <= 1439px) {
+  .dat__img {
+    width: 368px;
+    margin-top: 16px;
+  }
 }
 
 .dat__time {
@@ -1116,6 +1312,14 @@ img {
   width: 352px;
   height: 302px;
   padding: 106px 110px 105px;
+}
+
+@media screen and (width <= 1439px) {
+  .dat__time {
+    width: 368px;
+    margin-top: 16px;
+    padding: 106px 118px 105px;
+  }
 }
 
 .dat__min {
@@ -1177,6 +1381,14 @@ img {
   overflow-y: scroll;
 }
 
+@media screen and (width <= 1439px) {
+  .favorites__list {
+    gap: 20px 14px;
+    width: 672px;
+    height: 720px;
+  }
+}
+
 .favorites__list.activeErr {
   justify-content: center;
   align-items: center;
@@ -1208,6 +1420,13 @@ img {
   height: 141px;
   padding: 16px;
   display: flex;
+}
+
+@media screen and (width <= 1439px) {
+  .favorites__item {
+    width: 313px;
+    height: 165px;
+  }
 }
 
 .favorites__delBut {
@@ -1249,6 +1468,12 @@ img {
   display: flex;
 }
 
+@media screen and (width <= 1439px) {
+  .favorites__start {
+    margin-left: 120px;
+  }
+}
+
 .favorites__cont {
   align-items: center;
   display: flex;
@@ -1268,6 +1493,12 @@ img {
   font-size: 24px;
   font-weight: 400;
   line-height: 1.33;
+}
+
+@media screen and (width <= 1439px) {
+  .favorites__fav {
+    font-size: 22px;
+  }
 }
 
 .ratingModal {
