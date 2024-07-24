@@ -12,10 +12,8 @@ export const getExersizes = async (filter, page) => {
 }
 
 export const getExs = async (filter, exs, page, keyword) => {
-    console.log(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== '' ? "&keyword=" + keyword : ""}&page=1&limit=${window.outerWidth < 1440 ? '8' : '9'}`);
     try {
         const response = await axios.get(`https://energyflow.b.goit.study/api/exercises?${filter}=${exs}${keyword !== '' ? "&keyword=" + keyword : ""}&page=${page}&limit=${window.outerWidth < 1440 ? '8' : '9'}`);
-        console.log(response.data)
         return response.data;
     }
     catch (error) {
@@ -24,10 +22,8 @@ export const getExs = async (filter, exs, page, keyword) => {
 }
 
 export const getEx = async (id) => {
-    console.log(`https://energyflow.b.goit.study/api/exercises/${id}`);
     try {
         const response = await axios.get(`https://energyflow.b.goit.study/api/exercises/${id}`);
-        console.log(response.data)
         return response.data;
     }
     catch (error) {
@@ -36,10 +32,8 @@ export const getEx = async (id) => {
 }
 
 export const sendRating = async (id, rating) => {
-    console.log(`https://energyflow.b.goit.study/api/exercises/${id}/rating`);
     try {
         const response = await axios.patch(`https://energyflow.b.goit.study/api/exercises/${id}/rating`, rating);
-        console.log(response.data)
         return response.data;
     }
     catch (error) {
@@ -56,7 +50,6 @@ let word = '';
 let fav = [];
 
 const showExersizes = (filter, page) => getExersizes(filter, page).then(data => {
-    console.log(data);
     word = document.querySelector('.exersize__input').value;
     document.querySelector('.exersize__list').innerHTML = '';
     document.querySelector('.exersize__pages').innerHTML = '';
@@ -78,7 +71,6 @@ const showExersizes = (filter, page) => getExersizes(filter, page).then(data => 
 });
 
 const showExs = (filter, exs, page, keyword = '') => getExs(filter, exs, page, keyword).then(data => {
-    console.log(data);
     word = document.querySelector('.exersize__input').value;
     document.querySelector('.exersize__exersizes').innerHTML = '';
     document.querySelector('.exersize__pages').innerHTML = '';

@@ -12,10 +12,8 @@ export const getEx = async (id) => {
 }
 
 export const sendRating = async (id, rating) => {
-    console.log(`https://energyflow.b.goit.study/api/exercises/${id}/rating`);
     try {
         const response = await axios.patch(`https://energyflow.b.goit.study/api/exercises/${id}/rating`, rating);
-        console.log(response.data)
         return response.data;
     }
     catch (error) {

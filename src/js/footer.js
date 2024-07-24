@@ -13,7 +13,7 @@ export const newSubscription = async (email) => {
 
 document.querySelector('.footer__button').addEventListener('click', (e) => {
     e.preventDefault();
-    document.querySelector('.footer__form').checkValidity() ? newSubscription(document.querySelector('.footer__input').value).then(data => (console.log(data), basicLightbox.create(`
+    document.querySelector('.footer__form').checkValidity() ? newSubscription(document.querySelector('.footer__input').value).then(data => (basicLightbox.create(`
         <section class="msgModal">
             <p class="msgModal__msg">${data.message}</p>
         </section>
