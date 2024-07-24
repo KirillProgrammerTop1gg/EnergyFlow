@@ -104,7 +104,9 @@
         gap: 8px;
         display: flex;
         margin: 32px auto 0;
-        width: min-content;
+        flex-wrap: wrap;
+        width: max-content;
+        max-width: 100%;
         @media screen and (max-width: 767px) {
             margin-top: 20px;
         }
