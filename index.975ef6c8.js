@@ -5712,12 +5712,40 @@ document.querySelector(".footer__button").addEventListener("click", (e)=>{
 
 },{"axios":"jo6P5","basiclightbox":"h9e8q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bvS82":[function(require,module,exports) {
 var _favJs = require("./fav.js");
+var _basiclightbox = require("basiclightbox");
+let modal;
+let page = 0;
 document.querySelector(".header__buttons").addEventListener("click", (e)=>{
     e.target.closest(".header__navBut[homeBut]") !== null && (document.querySelector(".header__navBut[homeBut]").classList.add("activeBut"), document.querySelector(".header__navBut[favBut]").classList.remove("activeBut"), document.querySelectorAll(".container.homePage").forEach((cont)=>cont.style.display = "block"), document.querySelectorAll(".container.favPage").forEach((cont)=>cont.style.display = "none"), document.querySelector(".footer").style.display = "block");
     e.target.closest(".header__navBut[favBut]") !== null && (document.querySelector(".header__navBut[homeBut]").classList.remove("activeBut"), document.querySelector(".header__navBut[favBut]").classList.add("activeBut"), document.querySelectorAll(".container.homePage").forEach((cont)=>cont.style.display = "none"), document.querySelectorAll(".container.favPage").forEach((cont)=>cont.style.display = "block"), document.querySelector(".footer").style.display = "none", (0, _favJs.showFavs)());
 });
+document.querySelector(".header__svg").addEventListener("click", (e)=>(modal = _basiclightbox.create(`
+    <section class="burger">
+        <a class="burger__home" href="#header"><h2 class="burger__title">energy.flow</h2></a>
+        <svg class="burger__close" width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc>Created with Pixso.</desc><defs><clipPath id="clip3637_5970"><rect id="x" rx="000000" width="19.000000" height="19.000000" transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/></clipPath></defs><rect id="x" rx="000000" width="19.000000" height="19.000000" transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/><g clip-path="url(#clip3637_5970)"><path id="Vector" d="M15 5L5 15" stroke="#F6F6F6" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/><path id="Vector" d="M5 5L15 15" stroke="#F6F6F6" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/></g></svg>
+        <nav class="burger__nav">
+            <ul class="burger__buttons">
+                <li class="burger__butCont">
+                    <button class="burger__navBut${page ? "" : " activeBut"}" homeBut>Home</button>
+                </li>
+                <li class="burger__butCont">
+                    <button class="burger__navBut${page ? " activeBut" : ""}" favBut>Favorites</button>
+                </li>
+            </ul>
+        </nav>
+        <ul class="burger__list">
+            <li class="burger__item"><a class="burger__link" target="_blank" href="https://www.facebook.com/goITclub/"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.8"><path d="M17.0804 4.06011C17.2904 4.06011 17.5004 4.06011 17.9204 4.06011V7.21011C17.7104 7.21011 17.2904 7.21011 16.8704 7.21011C16.4504 7.21011 16.0304 7.21011 15.8204 7.42011C15.6104 7.63011 15.6104 7.84011 15.6104 8.33011C15.6104 8.75011 15.6104 9.03011 15.6104 9.45011H17.9204V12.1101H15.6104V23.6601H12.0404V12.0401H10.1504V9.38011H12.0404V8.47011C12.0404 6.93011 12.2504 5.81011 12.6704 5.32011C13.3004 4.41011 14.5604 3.99011 16.4504 3.99011C16.6604 4.06011 16.8704 4.06011 17.0804 4.06011Z" fill="#7E847F" /></g></svg></a></li>
+            <li class="burger__item"><a class="burger__link" target="_blank" href="https://www.instagram.com/goitclub/"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.8"><path d="M25.1277 9.41145C25.114 8.47139 24.9398 7.53878 24.6065 6.65957C24.0231 5.15821 22.8352 3.97103 21.3313 3.38985C20.4618 3.06325 19.5426 2.88816 18.6122 2.86829C17.4155 2.81489 17.0361 2.79999 13.9986 2.79999C10.961 2.79999 10.5716 2.79999 9.38372 2.86829C8.45454 2.88816 7.5353 3.06325 6.66582 3.38985C5.16196 3.97103 3.97279 5.15821 3.39065 6.65957C3.06351 7.52761 2.88688 8.44532 2.86946 9.37296C2.81598 10.5688 2.7998 10.9476 2.7998 13.9801C2.7998 17.0127 2.7998 17.4001 2.86946 18.5873C2.88812 19.5162 3.06351 20.4326 3.39065 21.3032C3.97404 22.8033 5.16195 23.9905 6.66706 24.5716C7.53281 24.9094 8.45205 25.1006 9.38497 25.1304C10.5828 25.1838 10.9622 25.2 13.9998 25.2C17.0374 25.2 17.4267 25.2 18.6146 25.1304C19.5438 25.1118 20.4631 24.9367 21.3338 24.6101C22.8377 24.0277 24.0256 22.8405 24.609 21.3404C24.9361 20.4711 25.1115 19.5547 25.1301 18.6245C25.1836 17.4299 25.1998 17.0511 25.1998 14.0174C25.1973 10.9848 25.1973 10.5999 25.1277 9.41145ZM13.9911 19.7149C10.8142 19.7149 8.24059 17.1455 8.24059 13.9739C8.24059 10.8023 10.8142 8.23296 13.9911 8.23296C17.1655 8.23296 19.7416 10.8023 19.7416 13.9739C19.7416 17.1455 17.1655 19.7149 13.9911 19.7149ZM19.9705 9.3593C19.2279 9.3593 18.6296 8.76074 18.6296 8.02061C18.6296 7.28049 19.2279 6.68193 19.9705 6.68193C20.7106 6.68193 21.3102 7.28049 21.3102 8.02061C21.3102 8.76074 20.7106 9.3593 19.9705 9.3593Z" fill="#7E847F" /><path d="M13.9928 17.479C15.9277 17.479 17.4963 15.9104 17.4963 13.9755C17.4963 12.0406 15.9277 10.472 13.9928 10.472C12.0578 10.472 10.4893 12.0406 10.4893 13.9755C10.4893 15.9104 12.0578 17.479 13.9928 17.479Z" fill="#7E847F" /></g></svg></a></li>
+            <li class="burger__item"><a class="burger__link" target="_blank" href="https://www.youtube.com/c/GoIT"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.8"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.2104 5.24986C20.0203 5.17986 17.5703 5.10986 13.8604 5.10986H13.3703C9.80034 5.10986 7.42038 5.17986 6.23038 5.31986C4.62038 5.45986 3.50034 5.87986 2.87034 6.43986C2.31034 6.92986 1.89036 7.83986 1.75036 9.02986C1.68036 9.79986 1.61035 11.4099 1.61035 13.8599V14.2099C1.61035 16.5199 1.68034 18.1299 1.82034 18.8999C2.03034 20.0199 2.38038 20.8599 3.08038 21.3499C3.78038 21.9099 4.97036 22.2599 6.65036 22.3999C7.84036 22.4699 10.2904 22.5399 14.0004 22.5399H14.4904C18.0604 22.5399 20.4404 22.4699 21.6304 22.3299C23.2404 22.1899 24.3604 21.7699 24.9904 21.2099C25.5504 20.7199 25.9703 19.8099 26.1103 18.6199C26.1803 17.8499 26.2504 16.2399 26.2504 13.7899V13.4399C26.2504 11.1299 26.1804 9.51986 26.0404 8.74986C25.8304 7.62986 25.4804 6.78986 24.7804 6.29986C24.0804 5.73986 22.8904 5.38986 21.2104 5.24986ZM18.4804 13.8599L10.7804 18.4799V9.23986L18.4804 13.8599Z" fill="#7E847F" /></g></svg></a></li>
+        </ul>
+    </section>    
+`), modal.show(), document.querySelector(".burger__close").addEventListener("click", ()=>modal.close()), document.querySelector(".burger__buttons").addEventListener("click", (e)=>{
+        e.target.closest(".burger__navBut[homeBut]") !== null && (page = 0, document.querySelector(".burger__navBut[homeBut]").classList.add("activeBut"), document.querySelector(".burger__navBut[favBut]").classList.remove("activeBut"), document.querySelectorAll(".container.homePage").forEach((cont)=>cont.style.display = "block"), document.querySelectorAll(".container.favPage").forEach((cont)=>cont.style.display = "none"), document.querySelector(".footer").style.display = "block");
+        e.target.closest(".burger__navBut[favBut]") !== null && (page = 1, document.querySelector(".burger__navBut[homeBut]").classList.remove("activeBut"), document.querySelector(".burger__navBut[favBut]").classList.add("activeBut"), document.querySelectorAll(".container.homePage").forEach((cont)=>cont.style.display = "none"), document.querySelectorAll(".container.favPage").forEach((cont)=>cont.style.display = "block"), document.querySelector(".footer").style.display = "none", (0, _favJs.showFavs)());
+        modal.close();
+    })));
 
-},{"./fav.js":"eHVZK"}],"eHVZK":[function(require,module,exports) {
+},{"./fav.js":"eHVZK","basiclightbox":"h9e8q"}],"eHVZK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getEx", ()=>getEx);
@@ -5773,7 +5801,7 @@ const showFavs = ()=>(document.querySelector(".favorites__list").innerHTML = "",
             <li class="info__item">Target: <span class="info__span">${result.target}</span></li>
         </ul>
     </li>
-`)) : (document.querySelector(".favorites__list").innerHTML = `<p class="favorites__err">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future.</p>`, document.querySelector(".favorites__list").classList.add("activeErr")) : null);
+`)) : (document.querySelector(".favorites__list").innerHTML = `<img src="./imgs/dumbbell.png" alt="dumbbell" class="favorites__dumbbell" /><p class="favorites__err">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future.</p>`, document.querySelector(".favorites__list").classList.add("activeErr")) : null);
 showFavs();
 document.querySelector(".favorites").addEventListener("click", (e)=>{
     e.target.closest(".favorites__delBut") !== null && (localStorage.setItem("fav", JSON.stringify(JSON.parse(localStorage.getItem("fav").replace(e.target.closest(".favorites__delBut").dataset.id, "")).filter((fav)=>fav !== "" && fav !== undefined && fav !== "undefined"))), showFavs());
