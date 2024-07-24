@@ -5,6 +5,14 @@
     background: #F6F6F6;
     padding: 50px;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @media screen and (max-width: 767px) {
+        width: 335px;
+        height: 357px;
+        padding: 40px 20px;
+    }
     &__close{
         background-color: transparent;
         border: 0;
@@ -14,6 +22,7 @@
     }
     &__text{
         @include text-style(400, 12px, 1.5, rgba(27, 27, 27, 0.4));
+        width: 100%;
     }
     &__container{
         margin-top: 8px;
@@ -41,6 +50,9 @@
     }
     &__form{
         margin-top: 32px;
+        @media screen and (max-width: 767px) {
+            margin-top: 20px;   
+        }
     }
     &__email{
         width: 350px;
@@ -49,6 +61,11 @@
         border: 1px solid rgba(27, 27, 27, 0.4);
         border-radius: 30px;
         @include text-style(400, 16px, 1.5, rgba(27, 27, 27, 0.6));
+        @media screen and (max-width: 767px) {
+            width: 295px;   
+            height: 42px;
+            font-size: 14px;
+        }
     }
     &__comment{
         margin-top: 16px;
@@ -59,6 +76,12 @@
         border-radius: 15px;
         @include text-style(400, 16px, 1.5, rgba(27, 27, 27, 0.6));
         resize: none;
+        @media screen and (max-width: 767px) {
+            width: 295px;   
+            height: 93px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
     }
     &__send{
         margin-top: 32px;
@@ -72,6 +95,11 @@
         width: 350px;
         height: 48px;
         transition: all .3s;
+        @media screen and (max-width: 767px) {
+            width: 295px;   
+            height: 42px;
+            margin-top: 20px;
+        }
         &:hover{
             background-color: #5F6560;
         }

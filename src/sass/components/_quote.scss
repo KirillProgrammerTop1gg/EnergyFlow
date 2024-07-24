@@ -5,6 +5,9 @@
     @media screen and (max-width: 1439px) {
         flex-wrap: wrap;
     }
+    @media screen and (max-width: 767px) {
+        gap: 20px;
+    }
     &__container{
         width: 704px;
         height: 302px;
@@ -17,6 +20,11 @@
         @media screen and (max-width: 1439px) {
             width: 736px;
         }
+        @media screen and (max-width: 767px) {
+            width: 335px;
+            height: 272px;
+            border-radius: 30px;
+        }
     }
     &__commas{
         position: absolute;
@@ -27,12 +35,23 @@
         @media screen and (max-width: 1439px) {
             right: 80px;
         }
+        @media screen and (max-width: 767px) {
+            right: 20px;
+            top: 40px;
+            width: 28px;
+            height: 28px;
+        }
     }
     &__texts{
         width: 576px;
         height: 174px;
         padding-left: 50px;
         position: relative;
+        @media screen and (max-width: 767px) {
+            width: 295px;
+            height: 190px;
+            padding-left: 46px;
+        }
     }
     &__iconCircle{
         width: 32px;
@@ -54,22 +73,46 @@
         width: 526px;
         height: 32px;
         @include text-style(500, 24px, 1.33, #F6F6F6);
+        @media screen and (max-width: 767px) {
+            width: 160px;
+            height: 28px;
+            font-size: 20px;
+        }
     }
     &__text{
         margin-top: 16px;
         @include text-style(400, 16px, 1.5, rgba(246, 246, 246, 0.6));
         width: 526px;
+        @media screen and (max-width: 767px) {
+            margin-top: 14px;
+            font-size: 14px;
+            width: 249px;
+        }
     }
     &__author{
         margin-top: 25px;
         @include text-style(500, 16px, 1.5, #F6F6F6);
+        @media screen and (max-width: 767px) {
+            margin-top: 14px;
+        }
     }
     &__img{
         border-radius: 50px;
         width: 704px;
         height: 302px;
+        background: url('../imgs/quote.png'), rgb(232, 232, 232);
+        background-size: cover;
         @media screen and (max-width: 1439px) {
             width: 736px;
+            background: url('../imgs/quote(tablet).png'), rgb(232, 232, 232);
+            background-size: cover;
+        }
+        @media screen and (max-width: 767px) {
+            width: 335px;
+            height: 272px;
+            border-radius: 30px;
+            background: url('../imgs/quote(mobile).png'), rgb(232, 232, 232);
+            background-size: cover;
         }
     }
 }

@@ -8,8 +8,19 @@
         border-radius: 50px;
         width: 704px;
         height: 302px;
+        background: url('../imgs/sportTime.png'), rgb(232, 232, 232);
+        background-size: cover;
         @media screen and (max-width: 1439px) {
             width: 736px;
+            background: url('../imgs/sportTime(tablet).png'), rgb(232, 232, 232);
+            background-size: cover;
+        }
+        @media screen and (max-width: 767px) {
+            border-radius: 30px;
+            width: 335px;
+            height: 269px;
+            background: url('../imgs/sportTime(mobile).png'), rgb(232, 232, 232);
+            background-size: cover;
         }
     }
     &__texts {
@@ -21,6 +32,12 @@
         padding: 64px 96px 64px 114px;
         @media screen and (max-width: 1439px) {
             width: 736px;
+        }
+        @media screen and (max-width: 767px) {
+            width: 335px;
+            height: 269px;
+            border-radius: 30px;
+            padding: 40px 20px 40px 70px;
         }
     }
     &__iconCircle{
@@ -34,9 +51,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @media screen and (max-width: 767px) {
+            top: 40px;
+            left: 20px;
+        }
     }
     &__title{
         @include text-style(500, 24px, 1.33, #F6F6F6);
+        @media screen and (max-width: 767px) {
+            font-size: 20px;
+        }
     }
     &__clue{
         margin-top: 2px;
@@ -45,5 +69,10 @@
     &__description{
         margin-top: 25px;
         @include text-style(400, 16px, 1.5, rgba(246, 246, 246, 0.6));
+        @media screen and (max-width: 767px) {
+            margin-top: 14px;
+            font-size: 14px;
+            line-height: 18px;
+        }
     }
 }

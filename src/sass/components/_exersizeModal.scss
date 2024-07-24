@@ -8,6 +8,10 @@
         width: 716px;
         padding: 40px 40px 40px 334px;
     }
+    @media screen and (max-width: 767px) {
+        width: 335px;
+        padding: 318px 20px 40px 20px;
+    }
     &__img{
         width: 270px;
         position: absolute;
@@ -16,6 +20,11 @@
         height: 259px;
         border-radius: 12px;
         z-index: 3;
+        @media screen and (max-width: 767px) {
+            left: 20px;
+            width: 295px;   
+            height: 258px;
+        }
     }
     &__overlay{
         width: 270px;
@@ -26,6 +35,11 @@
         border-radius: 12px;
         background: rgba(27, 27, 27, 0.2);
         z-index: 4;
+        @media screen and (max-width: 767px) {
+            left: 20px;   
+            width: 295px;
+            height: 258px;
+        }
     }
     &__close{
         border: 0;
@@ -35,9 +49,18 @@
         right: 16px;
         width: 28px;
         height: 28px;
+        @media screen and (max-width: 767px) {
+            top: 14px;   
+            right: 14px;
+            width: 24px;
+            height: 24px;
+        }
     }
     &__title{
         @include text-style(500, 24px, 1.33, #1B1B1B);
+        @media screen and (max-width: 767px) {
+            font-size: 20px;
+        }
     }
     &__rating{
         display: flex;
@@ -72,6 +95,11 @@
         display: flex;
         margin-top: 32px;
         gap: 7px;
+        @media screen and (max-width: 767px) {
+            gap: 9px;   
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
     }
     &__addToFav{
         @include text-style(400, 16px, 1.5, #F6F6F6);
@@ -80,7 +108,6 @@
         width: 194px;
         height: 48px;
         border: 0;
-        padding: 12px 24px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -89,19 +116,29 @@
         &:hover{
             background: rgb(95, 101, 96);
         }
+        @media screen and (max-width: 767px) {
+            width: 295px;   
+            height: 42px;
+        }
     }
     &__giveRating{
         width: 141px;
         height: 48px;
         border: 1px solid rgb(27, 27, 27);
         border-radius: 30px;
-        padding: 12px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: transparent;
         @include text-style(400, 16px, 1.5, #1B1B1B);
         transition: all .3s;
         &:hover {
             border: 1px solid rgb(126, 132, 127);
             color: #7E847F;
+        }
+        @media screen and (max-width: 767px) {
+            width: 295px;   
+            height: 42px;
         }
     }
 }

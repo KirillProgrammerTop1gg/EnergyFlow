@@ -6,4 +6,7 @@
     &__msg{
         @include text-style(400, 16px, 1.5, #1B1B1B);
     }
+    @media screen and (max-width: 767px) {
+        width: 335px;        
+    }
 }

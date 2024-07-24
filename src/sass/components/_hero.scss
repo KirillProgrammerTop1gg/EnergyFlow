@@ -2,15 +2,28 @@
     padding-top: 16px;
     position: relative;
     display: flex;
+    @media screen and (max-width: 767px) {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
     &__img{
         border-radius: 50px 0px 50px 50px;
         width: 704px;
         height: 884px;
         background: url('../imgs/heroImg.png'), rgb(232, 232, 232);
+        background-size: cover;
         @media screen and (max-width: 1439px) {
             width: 248px;
             height: 900px;
             background: url('../imgs/heroImg(tablet).png'), rgb(232, 232, 232);
+            background-size: cover;
+        }
+        @media screen and (max-width: 767px) {
+            width: 335px;
+            height: 387px;
+            border-radius: 30px;
+            background: url('../imgs/hero(mobile).png'), rgb(232, 232, 232);
+            background-size: cover;
         }
     }
     &__texts{
@@ -25,6 +38,12 @@
             width: 488px;
             height: 900px;
         }
+        @media screen and (max-width: 767px) {
+            width: 335px;
+            height: 365px;
+            border-radius: 30px;
+            padding-left: 20px;
+        }
     }
     &__title{
         @include text-style(400, 120px, 0.9583, #1B1B1B);
@@ -35,6 +54,11 @@
             font-size: 98px;
             margin-top: 231px;
         }
+        @media screen and (max-width: 767px) {
+            width: 295px;
+            font-size: 56px;
+            margin-top: 60px;
+        }
     }
     &__description {
         margin-top: 25px;
@@ -43,12 +67,19 @@
         @media screen and (max-width: 1439px) {
             width: 396px;
         }
+        @media screen and (max-width: 767px) {
+            width: 295px;
+            font-size: 14px;
+        }
     }
     &__span{
         @include text-style(400, 120px, 0.9583, #7E847F);
         font-style: italic;
         @media screen and (max-width: 1439px) {
             font-size: 98px;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 56px;
         }
     }
     &__list{
@@ -63,6 +94,13 @@
             left: 20px;
             bottom: 64px;
         }
+        @media screen and (max-width: 767px) {
+            top: 335px;
+            left: 10px;
+            bottom: 0;
+            gap: 4px;
+            height: 48px;
+        }
     }
     &__item{
         border: 1px solid #F6F6F64D;
@@ -72,8 +110,16 @@
         justify-content: center;
         padding: 4px 16px;
         height: 32px;
+        @media screen and (max-width: 767px) {
+            padding: 4px 10px;
+            height: 22px;
+        }
     }
     &__tag{
         @include text-style(400, 16px, 1.5, #F6F6F6);
+        @media screen and (max-width: 767px) {
+            font-size: 12px;
+            line-height: 14px;
+        }
     }
 }

@@ -4,6 +4,9 @@
     @media screen and (max-width: 1439px) {
         flex-wrap: wrap;
     }
+    @media screen and (max-width: 767px) {
+        padding-top: 96px;
+    }
     &__img{
         width: 352px;
         height: 302px;
@@ -11,6 +14,10 @@
         @media screen and (max-width: 1439px) {
             margin-top: 16px;
             width: 368px;
+        }
+        @media screen and (max-width: 767px) {
+            margin-top: 0;   
+            width: 335px;
         }
     }
     &__time{
@@ -24,10 +31,19 @@
             margin-top: 16px;
             padding: 106px 118px 105px;
         }
+        @media screen and (max-width: 767px) {
+            margin-top: 0;   
+            width: 335px;
+            padding: 96px 101px;
+        }
     }
     &__min{
         margin-top: 15px;
         @include text-style(500, 24px, 1.33, #1B1B1B);
+        @media screen and (max-width: 767px) {
+            font-size: 20px;   
+            line-height: 1;
+        }
     }
     &__description{
         margin-top: 6px;
