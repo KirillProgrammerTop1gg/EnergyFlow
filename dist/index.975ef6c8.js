@@ -5801,7 +5801,7 @@ const showFavs = ()=>(document.querySelector(".favorites__list").innerHTML = "",
             <li class="info__item">Target: <span class="info__span">${result.target}</span></li>
         </ul>
     </li>
-`)) : (document.querySelector(".favorites__list").innerHTML = `<img src="./imgs/dumbbell.png" alt="dumbbell" class="favorites__dumbbell" /><p class="favorites__err">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future.</p>`, document.querySelector(".favorites__list").classList.add("activeErr")) : null);
+`)) : (document.querySelector(".favorites__list").innerHTML = `<img src="https://github.com/KirillProgrammerTop1gg/EnergyFlow/blob/main/src/imgs/dumbbell.png?raw=true" alt="dumbbell" class="favorites__dumbbell" /><p class="favorites__err">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future.</p>`, document.querySelector(".favorites__list").classList.add("activeErr")) : null);
 showFavs();
 document.querySelector(".favorites").addEventListener("click", (e)=>{
     e.target.closest(".favorites__delBut") !== null && (localStorage.setItem("fav", JSON.stringify(JSON.parse(localStorage.getItem("fav").replace(e.target.closest(".favorites__delBut").dataset.id, "")).filter((fav)=>fav !== "" && fav !== undefined && fav !== "undefined"))), showFavs());
